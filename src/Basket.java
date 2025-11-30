@@ -3,42 +3,40 @@ import java.util.List;
 
 public class Basket<F extends Fruit>{
 
-    private final List<F> array;
+    private final List<F> fruits;
 
     public Basket(){
-        array = new ArrayList<>();
+        fruits = new ArrayList<>();
     }
 
     public double getWeight(){
         double sum = 0;
 
-        for (F fruit : array){
+        for (F fruit : fruits){
             sum += fruit.getWeight();
         }
         return sum;
     }
 
     public void add (F fruit){
-        array.add(fruit);
+        fruits.add(fruit);
     }
 
     public int compare(Basket<? extends Fruit> other){
         return Double.compare(this.getWeight(), other.getWeight());
     }
 
-    public void transferTo(Basket<? super F> dst){
+    public static <U extends Fruit> void transferTo(Basket<? extends U> src, Basket<? super U> dst){
         dst.clear();
-        for (F fruit : array){
-            dst.add(fruit);
-        }
-        clear();
+        dst.fruits.addAll(src.fruits);
+        src.clear();
     }
 
     public void clear(){
-        array.clear();
+        fruits.clear();
     }
 
     public int size(){
-        return array.size();
+        return fruits.size();
     }
 }

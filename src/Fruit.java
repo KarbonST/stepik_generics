@@ -1,7 +1,3 @@
-public class Fruit {
-    private double weight;
-
-    public double getWeight() {
-        return 0;
-    }
+public abstract class Fruit {
+    public abstract double getWeight();
 }

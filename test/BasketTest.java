@@ -7,28 +7,20 @@ public class BasketTest {
     @Test
     public void testAddFruit() {
         Basket<Fruit> basket = new Basket<>();
-        Fruit fruit = new Fruit();
         Apple apple = new Apple();
         Orange orange = new Orange();
-        Fruit appleFruit = new Fruit();
-        Fruit orangeFruit = new Fruit();
-        basket.add(fruit);
         basket.add(apple);
         basket.add(orange);
-        basket.add(appleFruit);
-        basket.add(orangeFruit);
 
-        assertEquals(5, basket.size());
+        assertEquals(2, basket.size());
     }
     @Test
     public void testGetWeight() {
         Basket<Fruit> basket = new Basket<>();
-        Fruit fruit = new Fruit();
         Apple apple = new Apple();
         Orange orange = new Orange();
         Fruit appleFruit = new Apple();
         Fruit orangeFruit = new Orange();
-        basket.add(fruit);
         basket.add(apple);
         basket.add(orange);
         basket.add(appleFruit);
@@ -82,7 +74,7 @@ public class BasketTest {
     }
 
     @Test
-    public void testTranserTo(){
+    public void testTransferTo(){
         Basket<Fruit> basket1 = new Basket<>();
         Basket<Fruit> basket2 = new Basket<>();
 
@@ -96,7 +88,7 @@ public class BasketTest {
         assertEquals(3, basket1.size());
         assertEquals(0, basket2.size());
 
-        basket1.transferTo(basket2);
+        Basket.transferTo(basket1, basket2);
         assertEquals(3, basket2.size());
         assertEquals(0, basket1.size());
     }
