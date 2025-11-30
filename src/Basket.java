@@ -31,9 +31,14 @@ public class Basket<F extends Fruit>{
         for (F fruit : array){
             dst.add(fruit);
         }
+        clear();
     }
 
     public void clear(){
         array.clear();
+    }
+
+    public int size(){
+        return array.size();
     }
 }
